@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<script type="text/javascript">
+/**
+ * 回到页面顶部
+ * @param acceleration 加速度
+ * @param time 时间间隔 (毫秒)
+ **/
+function goTop(acceleration, time) {
+ acceleration = acceleration || 0.1;
+ time = time || 16;
+
+ var x1 = 0;
+ var y1 = 0;
+ var x2 = 0;
+ var y2 = 0;
+ var x3 = 0;
+ var y3 = 0;
+
+ if (document.documentElement) {
+  x1 = document.documentElement.scrollLeft || 0;
+  y1 = document.documentElement.scrollTop || 0;
+ }
+ if (document.body) {
+  x2 = document.body.scrollLeft || 0;
+  y2 = document.body.scrollTop || 0;
+ }
+ var x3 = window.scrollX || 0;
+ var y3 = window.scrollY || 0;
+
+ // 滚动条到页面顶部的水平距离
+ var x = Math.max(x1, Math.max(x2, x3));
+ // 滚动条到页面顶部的垂直距离
+ var y = Math.max(y1, Math.max(y2, y3));
+
+ // 滚动距离 = 目前距离 / 速度, 因为距离原来越小, 速度是大于 1 的数, 所以滚动距离会越来越小
+ var speed = 1 + acceleration;
+ window.scrollTo(Math.floor(x / speed), Math.floor(y / speed));
+
+ // 如果距离不为零, 继续调用迭代本函数
+ if(x > 0 || y > 0) {
+  var invokeFunction = "goTop(" + acceleration + ", " + time + ")";
+  window.setTimeout(invokeFunction, time);
+ }
+} 
+</script>
+<style type="text/css">
+#container {
+	width:1340px;
+	margin-top: -7px;
+	margin-left: -3px;
+}
+#header {
+	background-color: #000000;
+	width:1340px;
+}
+#listview{
+	background-image:url(http://pic1.sc.chinaz.com/files/pic/pic9/201410/apic6924.jpg);
+	width:1340px;
+	height: 420px;
+}
+#pagebody{
+	background-color:#E0E0E0;
+	width:1340px;
+	height: 1670px;
+}
+#sidebar{
+	float: left;
+	width:220px;
+	background-color: #404040;
+	margin-left: 20px;
+	margin-top:20px;
+	height: 330px;
+	color:#00CCFF
+}
+#mainbody{
+	float:right;
+	width:1050px;
+	margin-left: 10px;
+	margin-right: 30px;
+	background-color:#ffffff;
+	margin-top:20px;
+	height: 1650px; 
+}
+#tuanduifengcai{
+	color: #ffffff;
+}
+#footer{
+	background-color:#404040;
+	height: 30px;
+}
+.bowenstyle{
+	float:left;
+	border-style:groove;
+	border-width:1px;
+	border-color:#C8C8C8;
+	width:430px;
+	height:230px;
+	margin:0px;
+	margin-bottom: 30px;
+	position:relative;
+	left:-30px;
+}
+.bowenimage{
+	float:left;
+	width:150px;
+	height:230px;
+
+}
+.bowenlist{
+	margin-top:30px;
+	padding-top:30px;
+}
+.articlelist1{
+
+}
+.biankuang1{
+	width:50px;
+	height: 200px;
+	float: left;
+}
+.biankuang2{
+	width:200px;
+	height: 30px;
+}
+.sortfunction{
+	position:relative;
+	left:-130px;
+}
+.showimage{
+	float:left;
+	padding-left:27px;
+	margin-top: 10px;
+}
+.link1{
+	text-decoration: none;
+	color:#000000;
+}
+</style>
+<meta charset="utf-8">
+<title>无名绅士の博客</title>
+</head>
+<body >
+	<div id="container">
+		<div id="header" style="color:#ffffff">
+			<div style="float:left;font-size:240%;font-family:'楷体'"><img src="D:\Ahtml\img1.jpeg" style="float:left;width:50px;height:45px" >无名绅士の博客</div>
+			<div style="float:right;padding-right:20px;height:40px;line-height:50px;" >登录</div>
+			<div style="clear:both;"></div>
+			<div id="listview" style="text-align:center">
+				<div style="float:right;margin-top:25px;margin-bottom:25px;height:1px;width:595px;background-color:#ffffff">
+				</div>
+				<div id="tuanduifengcai" style="font-size:200%;font-family:'微软雅黑';float:right;letter-spacing:5px">团队风采</div>
+				<div style="float:right;margin-top:25px;margin-bottom:25px;height:1px;width:595px;background-color:#ffffff">
+				</div>
+				<form  style="padding-top:10px" name="form1" method="post" action=""> 
+					<div >
+						<div class="showimage" ><img name="show1" src="D:\Ahtml\img2.jpeg" width="400" height="330" border="5"></img>
+						</div>
+						<div class="showimage"><img name="show2" src="D:\Ahtml\img4.jpeg" width="400" height="330" border="5"></img>
+						</div>
+						<div class="showimage"><img name="show3" src="D:\Ahtml\img5.jpeg" width="400" height="330" border="5"></img>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="pagebody">
+			<div id="sidebar">
+				<ul style="list-style-type:none;margin-top:30px;">
+					<li class="allpart" style="font-size:120%;font-family:'微软雅黑';font-weight:100;">
+						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">全部博文</a>
+					</li>
+					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+						<li>
+						</li>
+					</ul>
+					<li class="part1" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
+						<a class="part1-link;" data-id="2" style="letter-spacing:3px">前端技术</a>
+						<div style="display:none">
+							<ul>
+								<li>
+									<a data-id="6">HTML/HTML5</a>
+								</li>
+								<li>
+									<a data-id="7">CSS</a>
+								</li>
+								<li>
+									<a data-id="8">Javascript</a>
+								</li>
+								<li>
+									<a data-id="9">Node.js</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+						<li>
+						</li>
+					</ul>
+					<li class="part2" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
+						<a class="part2-link" data-id="3" style="letter-spacing:3px">后端开发</a>
+						<div style="display:none">
+							<ul>
+								<li>
+									<a data-id="6">PHP</a>
+								</li>
+								<li>
+									<a data-id="7">Java</a>
+								</li>
+								<li>
+									<a data-id="8">Python</a>
+								</li>
+								<li>
+									<a data-id="9">Myspl</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+						<li>
+						</li>
+					</ul>
+					<li class="part3" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
+						<a class="part3-link" data-id="4" style="letter-spacing:3px">软件教程</a>
+					</li>
+					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+						<li>
+						</li>
+					</ul>
+					<li class="part4" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
+						<a class="part4-link" data-id="5" style="letter-spacing:3px">团队动态</a>
+					</li>
+					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+						<li>
+						</li>
+					</ul>
+					<li class="part5" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
+						<a class="part4-link" data-id="10" style="color:#FF3300;letter-spacing:3px">关于我们</a>
+					</li>
+				</ul>
+			</div>
+			<div id="mainbody">
+				<h1 style="float:left;margin-top:10px;margin-left:20px;font-family:'楷体';font-size:200%;color:#FF6600;font-weight=300">博文列表
+				</h1>
+				<br>
+				<br>
+				<div>
+					<ul class="sortfunction" style="list-style-type:none">
+						<li style="float:left;margin-right:10px;color:#CC00CC">按时间 
+						</li>
+						<li style="width:1px;height:20px;background-color:#000000;float:left;">
+						</li>
+						<li style="float:left;margin-right:10px;margin-left:10px;color:#CC00CC">按关注度
+						</li>
+						<li style="width:1px;height:20px;background-color:#000000;float:left;">
+						</li>
+						<li style="float:left;margin-left:10px;color:#CC00CC">按类型
+						</li>
+					</ul>
+				</div>
+				<br>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+								</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章1-1标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章1-2标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章2-1标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章2-2标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章3-1标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章3-2标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章4-1标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章4-2标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章5-1标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章5-2标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章6-1标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<article class="articlelist1">
+					<ul style="list-style-type:none;">
+							<div>
+							<div class="biankuang1">
+							</div>
+							<li class="bowenstyle" >
+								<div><img class="bowenimage" src="D:\Ahtml\img6.jpg" >
+								</div>
+								<div style="float:left">
+									<br>
+									<div style="color:#808080;font-size:80%" >分类：
+									</div>
+									<br>
+									<div style="font-size:150%">文章6-2标题：
+									</div>
+									<br>
+									<div>作者：
+									</div>
+									<br>
+									<div>发布时间：
+									</div>
+								</div>
+							</li>
+							</div>
+						</ul>
+				</article>
+				<br>
+				<br>
+			</div>
+		</div>
+		<div id="footer">
+			<div style="float:right;margin-top:15px;margin-bottom:15px;height:1px;width:620px;background-color:#ff0000">
+			</div>
+			<a href="#" class="link1" onclick="goTop();return false;" style="font-family:宋体;float:right;font-size:150%;color:#ffffff">回到顶部</a>
+			<div style="float:right;margin-top:15px;margin-bottom:15px;height:1px;width:620px;background-color:#ff0000">
+			</div>
+		</div>
+	</div>
+<script language="javascript" type="text/javascript">
+var number = 0;
+var timeout = null;
+var picture1 = new Array(2);
+var picture2 = new Array(2);
+for(var i=0;i<picture1.length;i++){picture1[i]=new Image();}
+for(var j=0;j<picture2.length;j++){picture2[j]=new Image();}
+picture1[0].src = "D:\Ahtml\img3.jpeg"
+picture1[1].src = "D:\Ahtml\img2.jpeg"
+picture2[0].src = "D:\Ahtml\img5.jpeg"
+picture2[1].src = "D:\Ahtml\img4.jpeg"
+function playimg(){	
+	document.form1.show1.src = picture1[number].src;
+	document.form1.show2.src = picture2[number].src;
+	number=(number+1)%2;
+	timeout = setTimeout("playimg()", 3000);
+}	
+</script>
+</body>
+</html>
