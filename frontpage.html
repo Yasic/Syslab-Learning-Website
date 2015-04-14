@@ -7,6 +7,16 @@
  * @param acceleration 加速度
  * @param time 时间间隔 (毫秒)
  **/
+var mytop_speed;
+var mytop_top;
+function mytop(){
+	mytop_top = documentElement.body.scrollTop;
+	while(mytop_top!=0){
+		mytop_speed = mytop_top/100;
+		mytop_top -= mytop_speed;
+	}
+}
+
 function goTop(acceleration, time) {
  acceleration = acceleration || 0.1;
  time = time || 16;
@@ -62,64 +72,40 @@ function closeLogin(){
    //document.getElementById('cover').style.display="none";
 }
 
-var octable2 = 1;
-var octable1 = 1;
-var octable3 = 1;
-function octablethree(){
-	if(octable3 == 1){document.getElementById("table3").style.display="inline";
-		document.getElementById("table2").style.display="none";
-		document.getElementById("table1").style.display="none";
-		octable3=0;
-		octable2=1;
-		octable1=1;
-	}
-	else if(octable3 == 0){
-		document.getElementById("table3").style.display="none";
-		octable3 = 1;
-	}
+
+function opentablethree(){
+	document.getElementById("table3").style.display="inline";
+	document.getElementById("sidebar").style.display="none";
+}
+function closetablethree(){
+	document.getElementById("table3").style.display="none";
+	document.getElementById("sidebar").style.display="inline";
 }
 
-function octabletwo(){
-	if(octable2 == 1){
-		document.getElementById("table2").style.display="inline";
-		document.getElementById("table1").style.display="none";
-		document.getElementById("table3").style.display="none";
-		octable2 = 0;
-		octable1 = 1;
-		octable3 = 1;
-	}
-	else if(octable2 == 0){
-		document.getElementById("table2").style.display="none";
-		octable2 = 1;
-	}
+function opentabletwo(){
+	document.getElementById("table2").style.display="inline";
+	document.getElementById("sidebar").style.display="none";
+}
+function closetabletwo(){
+	document.getElementById("table2").style.display="none";
+	document.getElementById("sidebar").style.display="inline";
 }
 
-function octableone(){
-	if(octable1 == 1){
-		document.getElementById("table1").style.display="inline";
-		document.getElementById("table2").style.display="none";
-		document.getElementById("table3").style.display="none";
-		octable1 = 0;
-		octable2 = 1;
-		octable3 = 1;
-	}
-	else if(octable1 == 0){
-		document.getElementById("table1").style.display="none";
-		octable1 = 1;
-	}
+function opentableone(){
+	document.getElementById("table1").style.display="inline";
+	document.getElementById("sidebar").style.display="none";
+}
+function closetableone(){
+	document.getElementById("table1").style.display="none";
+	document.getElementById("sidebar").style.display="inline";
 }
 
 var i = 0;
 var j1 = 20;
 var j2 = 1;
 var j3 = 1;
+var flag1,flag2;
 function startime(){
-	var today = new Date();
-	var h = today.getHours();
-	var m = today.getMinutes();
-	var s = today.getSeconds();
-	var flag1 = checkTime(m);
-	var flag2 = checkTime(s);
 	var srclist = new Array(4);
 	var testlist = new Array(21);
 	testlist[0] = 0;
@@ -143,10 +129,10 @@ function startime(){
 	testlist[18] = 0.9;
 	testlist[19] = 0.95;
 	testlist[20] = 1;
-	srclist[0] = "D:\\Ahtml\\img2.gif";
-	srclist[1] = "D:\\Ahtml\\img3.gif";
-	srclist[2] = "D:\\Ahtml\\img4.gif";
-	srclist[3] = "D:\\Ahtml\\img5.gif";
+	srclist[0] = "D:\\Ahtml\\img8.gif";
+	srclist[1] = "D:\\Ahtml\\img9.gif";
+	srclist[2] = "D:\\Ahtml\\img10.gif";
+	srclist[3] = "D:\\Ahtml\\img11.gif";
 	if(j2==1){j1 = j1-1;}
 	if(j2==-1){j1 = j1+1;}
 	if(j1 == 0){
@@ -161,17 +147,16 @@ function startime(){
 	}
 	document.getElementById('show1').style.opacity = testlist[j1];
 	document.getElementById('show2').style.opacity = testlist[j1];
-	document.getElementById('show3').style.opacity = testlist[j1];
-	//if(flag1 == 0){
-		//if(flag2 == 0){document.getElementById('time').innerHTML=h+":"+"0"+m+":"+"0"+s;}
-		document.getElementById('time').innerHTML=j1;
-	/*}
-	else{
-		if(flag2 == 0){document.getElementById('time').innerHTML=h+":"+m+":"+"0"+s;}
-		else{document.getElementById('time').innerHTML=h+":"+m+":"+s;}
-	}*/
-	t = setTimeout('startime()',100);
+	document.getElementById('show3').style.opacity = testlist[j1]; 
+	document.getElementById('time').innerHTML=flag1;
+	t = setTimeout('startime()',70);
 }
+
+function button(){
+	flag1=document.body.scrollTop;
+	document.getElementById('dingbubutton').style.top = 555+flag1+"px";
+}
+
 </script>
 <style type="text/css">
 #container {
@@ -180,17 +165,17 @@ function startime(){
 	margin-left: -3px;
 }
 #header {
-	background-color: #000000;
+	background-color: #404040;
 	width:1340px;
 }
 #listview{
-	background-image:url(http://pic1.sc.chinaz.com/files/pic/pic9/201410/apic6924.jpg);
 	width:1340px;
 	height: 385px;
 	margin-left:0px;
+	background-color:  #000000;
 }
 #pagebody{
-	background-color:#E0E0E0;
+	background-color:#404040;
 	width:1340px;
 	height: 1670px;
 }
@@ -198,18 +183,18 @@ function startime(){
 	position: absolute;
 	float: left;
 	width:220px;
-	background-color: #404040;
+	background-color: #E8E8E8;
 	margin-left: 20px;
 	margin-top:20px;
 	height: 350px;
-	color:#00CCFF
+	color:#000000;
 }
 #mainbody{
 	float:right;
 	width:1050px;
 	margin-left: 10px;
 	margin-right: 30px;
-	background-color:#ffffff;
+	background-color: #E8E8E8;
 	margin-top:20px;
 	height: 1650px; 
 }
@@ -225,6 +210,110 @@ function startime(){
 }
 #password{
 	size:"12";
+}
+#table1{
+	float:right;
+	display:none;
+	position:absolute;
+	left:325px; 
+	top:651px; 
+	width:220px; 
+	height:350px; 
+	margin-left:-300px; 
+	margin-top:-200px; 
+	background-color:#E8E8E8; 
+	color:#000000;
+}
+#table2{
+	float:right;
+	display:none;
+	position:absolute; 
+	left:325px; 
+	top:651px; 
+	width:220px; 
+	height:350px; 
+	margin-left:-300px; 
+	margin-top:-200px;
+	background-color:#E8E8E8; 
+	color:#000000;
+}
+#table3{
+	float:right;
+	display:none;
+	position:absolute; 
+	left:325px; 
+	top:651px; 
+	width:220px; 
+	height:350px; 
+	margin-left:-300px; 
+	margin-top:-200px;
+	background-color:#E8E8E8; 
+	color:#000000;
+}
+#titletext{
+	float:left;
+	font-size:240%;
+	font-family:'楷体';
+	color:#00CCFF;
+}
+#titlepic{
+	float:left;
+	width:50px;
+	height:45px;
+	margin-top:0px;
+}
+#logintext{
+	float:right;
+	padding-right:20px;
+	height:40px;
+	line-height:50px;
+	cursor:pointer;
+}
+#dingbubutton{
+	position:absolute;
+	left:1263px;
+	top:555px;
+	border-style:groove;
+	border-width:1px;
+	font-size: 120%;
+	font-family: '微软雅黑';
+	font-weight: 100;
+	background-color: #00FFCC;
+	cursor:pointer;
+}
+#articlelist{
+	float:left;
+	margin-top:10px;
+	margin-left:20px;
+	font-family:'楷体';
+	font-size:200%;
+	color:#FF6600;
+	font-weight=300;
+}
+.part-link{
+	letter-spacing:3px;
+	cursor:pointer;
+}
+.separateline{
+	height:1px;
+	background-color:#000000;
+	margin-right:20px;
+	margin-top:10px;
+	list-style-type:none;
+}
+.englishtext{
+	list-style-type:none;
+	margin-top:10px;
+	font-family:'Century Gothic';
+	font-size:110%;
+	font-weight:100;
+	margin-top:10px;
+}
+.chinesetext{
+	margin-top:10px;
+	font-size:120%;
+	font-family:'微软雅黑';
+	font-weight:100;
 }
 .bowenstyle{
 	float:left;
@@ -277,11 +366,11 @@ function startime(){
 <meta charset="utf-8">
 <title>无名绅士の博客</title>
 </head>
-<body onload="startime()">
+<body onload="startime()" onscroll="button()">
 	<div id="container">
 		<div id="header" style="color:#ffffff">
-			<div style="float:left;font-size:240%;font-family:'楷体'"><img src="D:\Ahtml\img1.jpg" style="float:left;width:50px;height:45px" >无名绅士の博客</div>
-			<div style="float:right;padding-right:20px;height:40px;line-height:50px;cursor:pointer" onMouseDown="openLogin()">登录</div>
+			<div id="titletext" ><img id="titlepic" src="D:\Ahtml\shenshi.ico">无名绅士の博客</div>
+			<div id="logintext" onMouseDown="openLogin()">登录</div>
 			<div style="clear:both;"></div>
 			<!--<div id="cover" ></div>-->
 			<!--<div id="tuanduifengcai" style="font-size:200%;font-family:'微软雅黑';letter-spacing:5px;text-align:center">团队风采</div>-->
@@ -293,11 +382,11 @@ function startime(){
 				</div>-->
 				<form  style="padding-top:10px" name="form1" method="post" action=""> 
 					<div >
-						<div class="showimage" ><img id="show1" src="D:\Ahtml\img2.gif" width="400" height="330" border="5" ></img>
+						<div class="showimage" ><img id="show1" src="D:\Ahtml\img8.gif" width="400" height="330" border="5" ></img>
 						</div>
-						<div class="showimage"><img id="show2" src="D:\Ahtml\img3.gif" width="400" height="330" border="5" ></img>
+						<div class="showimage"><img id="show2" src="D:\Ahtml\img9.gif" width="400" height="330" border="5" ></img>
 						</div>
-						<div class="showimage"><img id="show3" src="D:\Ahtml\img4.gif" width="400" height="330" border="5" ></img>
+						<div class="showimage"><img id="show3" src="D:\Ahtml\img10.gif" width="400" height="330" border="5" ></img>
 						</div>
 					</div>
 				</form>
@@ -306,46 +395,46 @@ function startime(){
 		<div id="pagebody">
 			<div id="sidebar">
 				<ul style="list-style-type:none;margin-top:30px;">
-					<li class="allpart" style="font-size:120%;font-family:'微软雅黑';font-weight:100;">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">全部博文</a>
+					<li class="chinesetext" style="margin-top:0px">
+						<a class="part-link"  data-id="1" >全部博文</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="part1" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
-						<a class="part1-link;" data-id="2" style="letter-spacing:3px;cursor:pointer" onMouseDown = "octableone()">前端技术</a>
+					<li class="chinesetext">
+						<a class="part-link" data-id="2"  onMouseDown = "opentableone()">前端技术</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="part2" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
-						<a class="part2-link" data-id="3" style="letter-spacing:3px;cursor:pointer" onMouseDown = "octabletwo()">后端开发</a>
+					<li class="chinesetext">
+						<a class="part-link" data-id="3"  onMouseDown = "opentabletwo()">后端开发</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="part3" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
-						<a class="part3-link" data-id="4" style="letter-spacing:3px;cursor:pointer" onMouseDown = "octablethree()">软件教程</a>
+					<li class="chinesetext">
+						<a class="part-link" data-id="4" onMouseDown = "opentablethree()">软件教程</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="part4" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
-						<a class="part4-link" data-id="5" style="letter-spacing:3px">团队动态</a>
+					<li class="chinesetext">
+						<a class="part-link" data-id="5" >团队动态</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="part5" style="margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100">
-						<a class="part4-link" data-id="10" style="letter-spacing:3px">关于我们</a>
+					<li class="chinesetext">
+						<a class="part-link" data-id="10" >关于我们</a>
 					</li>
 					<!--color:#FF3300;-->
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
@@ -357,7 +446,7 @@ function startime(){
 				</ul>
 			</div>
 			<div id="mainbody">
-				<div style="float:left;margin-top:10px;margin-left:20px;font-family:'楷体';font-size:200%;color:#FF6600;font-weight=300">博文列表
+				<div id="articlelist" >博文列表
 				</div>
 				<br>
 				<br>
@@ -725,111 +814,120 @@ function startime(){
 				</table>
 				<br><a href="javascript:closeLogin();" style="text-decoration: blink;color:#000000">>>关闭登录框<<</a></div>
 			</div>
-			<div id="table1" style="float:right;display:none;POSITION:absolute; left:525px; top:759px; width:220px; height:350px; margin-left:-300px; margin-top:
-			-200px;border:1px solid #888; background-color:#ffffff; text-align:center;color:#000000;color:#00ccff;background:#404040">
-				<ul style="list-style-type:none;margin-top:30px;font-family:'Century Gothic';">
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">HTML/HTML5</a>
+			<div id="table1" >
+				<ul class="englishtext" >
+					<li class="englishtext" style="margin-top:30px">
+						<a class="part-link"  data-id="1" >HTML/HTML5</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">CSS</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >CSS</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">Javascript</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Javascript</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px;">Node.js</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Node.js</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
+					<li class="chinesetext">
+						<a class="part-link"  data-id="1" onMouseDown = "closetableone()">返回上级</a>
+					</li>
 				</ul>
 			</div>
-			<div id="table2" style="float:right;display:none;POSITION:absolute; left:525px; top:806px; width:220px; height:350px; margin-left:-300px; margin-top:
-			-200px;border:1px solid #888; background-color:#ffffff; text-align:center;color:#000000;color:#00ccff;background:#404040">
-				<ul style="list-style-type:none;margin-top:30px;font-family:'Century Gothic';">
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">PHP</a>
+			<div id="table2" >
+				<ul class="englishtext" style="margin-top:30px">
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >PHP</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">Python</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Python</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">Java</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Java</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px;">Mysql</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Mysql</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
+					<li class="chinesetext">
+						<a class="part-link"  data-id="1" onMouseDown = "closetabletwo()">返回上级</a>
+					</li>
 				</ul>
 			</div>
-			<div id="table3" style="float:right;display:none;POSITION:absolute; left:525px; top:853px; width:220px; height:350px; margin-left:-300px; margin-top:
-			-200px;border:1px solid #888; background-color:#ffffff; text-align:center;color:#000000;color:#00ccff;background:#404040">
-				<ul style="list-style-type:none;margin-top:30px;font-family:'Century Gothic';">
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">Photoshop</a>
+			<div id="table3" >
+				<ul class="englishtext" style="margin-top:30px">
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Photoshop</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">Github</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Github</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px">Sublime</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >Sublime</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px;">vim</a>
+					<li class="englishtext">
+						<a class="part-link"  data-id="1" >vim</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="allpart" style="font-size:120%;font-weight:100;margin-top:10px">
-						<a class="allpart-link"  data-id="1" style="letter-spacing:3px;font-family:微软雅黑">其他</a>
+					<li class="chinesetext">
+						<a class="part-link"  data-id="1" >其他</a>
 					</li>
-					<ul style="height:1px;background-color:#ffffff;margin-right:20px;margin-top:10px;list-style-type:none">
+					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
+					<li class="chinesetext">
+						<a class="part-link"  data-id="1" onMouseDown = "closetablethree()">返回上级</a>
+					</li>
 				</ul>
+			</div>
+			<div>
+				<input id="dingbubutton" type="button" value="TOP" onclick="goTop();return false;">
 			</div>
 		</div>
 	</div>
