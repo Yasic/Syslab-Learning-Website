@@ -71,6 +71,12 @@ function closeLogin(){
    document.getElementById("win").style.display="none";
    //document.getElementById('cover').style.display="none";
 }
+function colorthreein(){
+	document.getElementById("firstfour").style.background="#ff0000";
+}
+function colorthreeout(){
+	document.getElementById("firstfour").style.background="#E8E8E8";
+}
 
 
 function opentablethree(){
@@ -86,6 +92,13 @@ function opentabletwo(){
 	document.getElementById("table2").style.display="inline";
 	document.getElementById("sidebar").style.display="none";
 }
+function colortwoin(){
+	document.getElementById("firstthree").style.background="#ff0000";
+}
+function colortwoout(){
+	document.getElementById("firstthree").style.background="#E8E8E8";
+}
+
 function closetabletwo(){
 	document.getElementById("table2").style.display="none";
 	document.getElementById("sidebar").style.display="inline";
@@ -94,6 +107,12 @@ function closetabletwo(){
 function opentableone(){
 	document.getElementById("table1").style.display="inline";
 	document.getElementById("sidebar").style.display="none";
+}
+function coloronein(){
+	document.getElementById("firsttwo").style.background='#ff0000';
+}
+function coloroneout(){
+	document.getElementById("firsttwo").style.background="#E8E8E8";
 }
 function closetableone(){
 	document.getElementById("table1").style.display="none";
@@ -290,9 +309,31 @@ function button(){
 	color:#FF6600;
 	font-weight=300;
 }
-.part-link{
-	letter-spacing:3px;
+.part-linkchinese{
+	letter-spacing:5px;
 	cursor:pointer;
+	border-style:groove;
+	border-width:1px;
+	border-bottom-color: #000000;
+	font-size:120%;
+	font-family:'微软雅黑';
+	font-weight:100;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+}
+.part-linkenglish{
+	letter-spacing:5px;
+	cursor:pointer;
+	border-style:groove;
+	border-width:1px;
+	border-bottom-color: #000000;
+	font-size:110%;
+	font-family:'Century Gothic';
+	font-weight:100;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
 }
 .separateline{
 	height:1px;
@@ -393,7 +434,7 @@ function button(){
 			</div>
 		</div>
 		<div id="pagebody">
-			<div id="sidebar">
+			<!--<div id="sidebar">
 				<ul style="list-style-type:none;margin-top:30px;">
 					<li class="chinesetext" style="margin-top:0px">
 						<a class="part-link"  data-id="1" >全部博文</a>
@@ -402,22 +443,22 @@ function button(){
 						<li>
 						</li>
 					</ul>
-					<li class="chinesetext">
-						<a class="part-link" data-id="2"  onMouseDown = "opentableone()">前端技术</a>
+					<li class="chinesetext" id="part-link2" style="background-color:#ff0000">
+						<a class="part-link"   onMouseDown = "opentableone()">前端技术</a>
 					</li>
 					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="chinesetext">
-						<a class="part-link" data-id="3"  onMouseDown = "opentabletwo()">后端开发</a>
+					<li class="chinesetext" id="part-link3">
+						<a class="part-link"   onMouseDown = "opentabletwo()">后端开发</a>
 					</li>
 					<ul class="separateline">
 						<li>
 						</li>
 					</ul>
-					<li class="chinesetext">
-						<a class="part-link" data-id="4" onMouseDown = "opentablethree()">软件教程</a>
+					<li class="chinesetext" id="part-link4">
+						<a class="part-link"  onMouseDown = "opentablethree()">软件教程</a>
 					</li>
 					<ul class="separateline">
 						<li>
@@ -433,7 +474,7 @@ function button(){
 					<li class="chinesetext">
 						<a class="part-link" data-id="10" >关于我们</a>
 					</li>
-					<!--color:#FF3300;-->
+					<!--color:#FF3300;
 					<ul class="separateline">
 						<li>
 						</li>
@@ -444,6 +485,20 @@ function button(){
 						<div id="time" style="float:left;margin-top:10px;font-size:120%;font-family:'微软雅黑';font-weight:100;color:#ffffff;"></div>
 					</li>
 				</ul>
+			</div>-->
+			<div id="sidebar">
+				<div class="part-linkchinese" id="firstone">全部博文
+				</div>
+				<div class="part-linkchinese" id="firsttwo" onMouseDown = "opentableone()" onMouseOver = "coloronein()" onMouseOut = "coloroneout()">前端技术
+				</div>
+				<div class="part-linkchinese" id="firstthree" onMouseDown = "opentabletwo()" onMouseOver = "colortwoin()" onMouseOut = "colortwoout()">后端开发
+				</div>
+				<div class="part-linkchinese" id="firstfour" onMouseDown = "opentablethree()" onMouseOver = "colorthreein()" onMouseOut = "colorthreeout()">软件教程
+				</div>
+				<div class="part-linkchinese">团队动态
+				</div>
+				<div class="part-linkchinese">关于我们 
+				</div>
 			</div>
 			<div id="mainbody">
 				<div id="articlelist" >博文列表
@@ -814,117 +869,43 @@ function button(){
 				</table>
 				<br><a href="javascript:closeLogin();" style="text-decoration: blink;color:#000000">>>关闭登录框<<</a></div>
 			</div>
-			<div id="table1" >
-				<ul class="englishtext" >
-					<li class="englishtext" style="margin-top:30px">
-						<a class="part-link"  data-id="1" >HTML/HTML5</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >CSS</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Javascript</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Node.js</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="chinesetext">
-						<a class="part-link"  data-id="1" onMouseDown = "closetableone()">返回上级</a>
-					</li>
-				</ul>
+			<div id="table1">
+				<div class="part-linkenglish" >HTML/HTML5
+				</div>
+				<div class="part-linkenglish">CSS
+				</div>
+				<div class="part-linkenglish" >Javascript
+				</div>
+				<div class="part-linkenglish" >Node.js
+				</div>
+				<div class="part-linkchinese" id="twoback" onMouseDown = "closetableone()" onMouseOver="twobackin()" onMouseOut="twobackout()">返回上级
+				</div>
 			</div>
-			<div id="table2" >
-				<ul class="englishtext" style="margin-top:30px">
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >PHP</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Python</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Java</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Mysql</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="chinesetext">
-						<a class="part-link"  data-id="1" onMouseDown = "closetabletwo()">返回上级</a>
-					</li>
-				</ul>
+			<div id="table2">
+				<div class="part-linkenglish" >PHP
+				</div>
+				<div class="part-linkenglish">Python
+				</div>
+				<div class="part-linkenglish" >Java
+				</div>
+				<div class="part-linkenglish" >Mysql
+				</div>
+				<div class="part-linkchinese" id="threeback" onMouseDown = "closetabletwo()" onMouseOver="threebackin()" onMouseOut="threebackout()">返回上级
+				</div>
 			</div>
-			<div id="table3" >
-				<ul class="englishtext" style="margin-top:30px">
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Photoshop</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Github</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >Sublime</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="englishtext">
-						<a class="part-link"  data-id="1" >vim</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="chinesetext">
-						<a class="part-link"  data-id="1" >其他</a>
-					</li>
-					<ul class="separateline">
-						<li>
-						</li>
-					</ul>
-					<li class="chinesetext">
-						<a class="part-link"  data-id="1" onMouseDown = "closetablethree()">返回上级</a>
-					</li>
-				</ul>
+			<div id="table3">
+				<div class="part-linkenglish" >Photoshop
+				</div>
+				<div class="part-linkenglish">Github
+				</div>
+				<div class="part-linkenglish" >Sublime
+				</div>
+				<div class="part-linkenglish" >vim
+				</div>
+				<div class="part-linkchinese" >其他
+				</div>
+				<div class="part-linkchinese" id="fourback" onMouseDown = "closetablethree()" onMouseOver="fourbackin()" onMouseOut="fourbackout()">返回上级
+				</div>
 			</div>
 			<div>
 				<input id="dingbubutton" type="button" value="TOP" onclick="goTop();return false;">
