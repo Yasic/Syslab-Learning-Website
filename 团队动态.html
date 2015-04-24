@@ -10,7 +10,7 @@
     <div class="page-container" id="nav">
         <div id="logo" class="logo"><a href="/" target="_self" class="hide-text">无名的绅士——团队动态</a></div>
         <ul class="nav-item l">
-            <li><a href="/" target="_self" transition=1s>前端开发</a></li>
+            <li ><a href="/" target="_self">前端开发</a></li>
             <li><a href="/" target="_self">后端开发</a></li>
             <li><a href="/" target="_self">软件教程</a></li>
             <li><a href="团队动态.html" target="_self">团队动态</a></li>
@@ -21,22 +21,22 @@
 	</div>
 
 <div id="main">
-<div class="container clearfix">
-    <ul class="other-left l">
-      <li class="selected">
-        <a href="/"><span>最近项目</span></a>
+<div class="container">
+    <ul id="sidebar" class="other-left l">
+      <li >
+        <a href="/">最近项目</a>
       </li>
       <li >
-        <a href="/"><span>新增博客</span></a>
+        <a href="/">新增博客</a>
       </li>
       <li >
-         <a href="/"><span>往期项目</span></a>
+         <a href="/">往期项目</a>
       </li>
       <li >
-        <a href="/"><span>热门评论</span></a>
+        <a href="/">热门评论</a>
       </li>
       <li >
-        <a no-pjajx href="/"><span>友情链接</span></a>
+        <a no-pjajx href="/">友情链接</a>
       </li>
     </ul>
     <div class="other-right ">
@@ -116,13 +116,15 @@
 
 <div id="footer" >
     <div class="waper">
-        <div class="footerwaper clearfix">
-            <div class="footer_intro">
-                <div class="footer_logo"></div>
+        <div class="footerwaper">
+            <div class="footer_logo"></div>
+            <div id="footer_info">
+                <div class="footer_intro">
+                
                 <p>进击吧，无名的绅士！</p>
                 <p>Copyright © 2015 无名的绅士All Rights Reserved</p>
-            </div>
-            <div class="footer_link">
+                </div>
+                <div class="footer_link">
                 <ul>
                     <li><a href="/" target="_blank">网站首页</a></li>
                     <li><a href="/" target="_blank">前端开发</a></li>
@@ -131,6 +133,7 @@
                     <li><a href="团队动态.html" target="_blank">团队动态</a></li>
                     <li> <a href="关于我们.html" target="_blank">关于我们</a></li>
                 </ul>
+                </div>
             </div>
         </div>
     </div>
