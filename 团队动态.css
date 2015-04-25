@@ -1,7 +1,7 @@
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ margin: 0; padding: 0; }
 h1,h2,h3,h4,h5,h6{ font-size: 100%; font-weight: normal; font-family: "微软雅黑"; }
 input,button,textarea,select{ *font-size: 100%; border:none;}
-body{ background-color: #edeff0; color:#5e5e5e; font: 14px/2em "微软雅黑",Arial;text-decoration: none;}
+body{ background-color: #CCCCCC; color:#5e5e5e; font: 14px/2em "微软雅黑",Arial;text-decoration: none;}
 ol,ul{ list-style: none; }
 h2 { font-size: 20px; }
 .l {
@@ -36,7 +36,7 @@ h2 { font-size: 20px; }
   margin: 0 auto;
 }
 #header {
-  background: #000000;
+  background: #66CCCC;
   text-decoration: none;
 }
 #nav {
@@ -44,6 +44,7 @@ h2 { font-size: 20px; }
   position: relative;
   z-index: 1000;
   text-decoration: none;
+  box-shadow: 10px;
 }
 #nav a{text-decoration: none;}
 .logo {
@@ -62,24 +63,27 @@ h2 { font-size: 20px; }
 .nav-item li {
   float: left;
   width: 100px;
+  transition:1s;
 }
 .nav-item li:first-child{ margin-left: 150px;}
 .nav-item a {
   display: block;
   color: #787d82;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   height: 60px;
   line-height: 60px;
   transition:1s;
 }
 .nav-item a:hover {
-  color: #fff;
-  background-color: #363c41;
+  color: #333333;
+  background-color: yellow;
 }
-.login{ float: right;margin: 15px 15px;color: #fff;}
-.login a{ color: #fff;}
-.login a:hover{ color: #fff; }
+.nav-item li:hover{   width: 120px;}
+.login{ float: right;width: 50px;height:10px;margin: 15px 15px;color: #666666;transition:1s;}
+.login a{ color: #666666;transition:2s;}
+.login a:hover{ color: #333333;}
+.login:hover{ width: 100px;height: 30px;background-color: yellow;line-height: 30px;text-align: center;}
 
     
 .other-left {
@@ -87,9 +91,11 @@ h2 { font-size: 20px; }
   margin-left: 10px;
   width: 250px;
   overflow: visible;
-  background-color: #fff;
+  background-color: #66CCCC;
   list-style-type: none;
-  transition:2s;
+  box-shadow: 10px 10px 10px;
+  transition:1s;
+
 }
 #sidebar:hover{
 		border-radius: 40px;
@@ -97,6 +103,7 @@ h2 { font-size: 20px; }
 	}
 .other-left li {
   position: relative;
+  font-size: 18px;
   width: 250px;
   height: 60px;
   overflow: visible;
@@ -107,6 +114,8 @@ h2 { font-size: 20px; }
 	background: yellow;
 	border-radius: 10px;
 	color: #fff;
+	height: 80px;
+	line-height: 80px;
  }
 .other-left li:last-child {
   border-bottom: 0 none;
@@ -118,7 +127,7 @@ h2 { font-size: 20px; }
   height: 60px;
   line-height: 60px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   color: #787d82;
   text-align: center;
 }
@@ -153,29 +162,27 @@ h2 { font-size: 20px; }
   padding: 20px;
 
 }
+.other-right-wrap h2{ width: 100%;background-color: yellow;box-shadow: 10px 10px 10px;  border-radius: 10px;margin-bottom: 20px;}
+
 .blog-list {
+	height: 60px;
+	line-height: 60px;
+	width: 70%;
   margin: 20px;
+  border-color: yellow;
   transition:1s;
 }
+.blog-list tr,.blog-list  th{ border-color: yellow;}
 
 .blog-list:hover{
-    background:-moz-linear-gradient(top,yellow,#fff);
-    background:-o-linear-gradient(top,yellow,#fff);
-    background:-webkit-linear-gradient(top,yellow,#fff);
-    background:linear-gradient(top,yellow,#fff);
+	width: 90%;
+	height: 70px;
 }
-.blog-content{ transition:1s;}
-.blog-content:hover{ 
-	background:-moz-linear-gradient(top,yellow,#fff);
-	background:-o-linear-gradient(top,yellow,#fff);
-	background:-webkit-linear-gradient(top,yellow,#fff);
-	background:linear-gradient(top,yellow,#fff);
-}	
+.blog-content{ transition:1s;height: 40px;line-height: 40px;width: 70%;border-color: yellow;}
+.blogContent{line-height: 30px;}
 }
-.blog-list:hover{ }
-.blog-function{ margin-bottom:20px;}
 .blog-function li{ margin-left: 20px ; line-height: 20px;}
-.blog-content{ margin: 20px;}
+.blog-content:hover{width: 90%}
 #footer {
   background-color: #000000;
   border-top: 1px solid #e2e4e6;

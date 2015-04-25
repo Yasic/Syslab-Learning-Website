@@ -1,7 +1,7 @@
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{ margin: 0; padding: 0; }
 h1,h2,h3,h4,h5,h6{ font-size: 100%; font-weight: normal; font-family: "微软雅黑"; }
 input,button,textarea,select{ *font-size: 100%; border:none;}
-body{ background-color: #edeff0; color:#5e5e5e; font: 14px/2em "微软雅黑",Arial;text-decoration: none;}
+body{ background-color: #CCCCCC; color:#333333; font: 14px/2em "微软雅黑",Arial;text-decoration: none;}
 ol,ul{ list-style: none; }
 h2 { font-size: 20px; }
 h1{ font-size: 30px;}
@@ -37,7 +37,7 @@ h1{ font-size: 30px;}
   margin: 0 auto;
 }
 #header {
-  background: #000000;
+  background: #66CCCC;
   text-decoration: none;
 }
 #nav {
@@ -63,24 +63,27 @@ h1{ font-size: 30px;}
 .nav-item li {
   float: left;
   width: 100px;
+  transition:1s;
 }
+.nav-item li:hover{ width: 120px;}
 .nav-item li:first-child{ margin-left: 150px;}
 .nav-item a {
   display: block;
   color: #787d82;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   height: 60px;
   line-height: 60px;
   transition:1s;
 }
 .nav-item a:hover {
-  color: #fff;
-  background-color: #363c41;
+  color: #333333;
+  background-color: yellow;
 }
-.login{ float: right;margin: 15px 15px;color: #fff;}
-.login a{ color: #fff;}
-.login a:hover{ color: #fff; }
+.login{ float: right;width: 50px;height:10px;margin: 15px 15px;color: #fff;transition:1s;}
+.login a{ color: #787d82;transition:2s;}
+.login a:hover{ color: #333333;}
+.login:hover{ width: 100px;height: 30px;background-color: yellow;line-height: 30px;text-align: center;}
 
     
 .other-left {
@@ -90,6 +93,7 @@ h1{ font-size: 30px;}
   overflow: visible;
   background-color: #fff;
   list-style-type: none;
+  box-shadow: 8px 8px 20px #aef;
   transition:2s;
 }
 #sidebar:hover{
@@ -103,11 +107,14 @@ h1{ font-size: 30px;}
   overflow: visible;
   border-bottom: 1px solid #edf1f2;
   transition:1s;
+  background-color: #66CCCC;
 }
 .other-left li:hover{
 	background: yellow;
 	border-radius: 10px;
 	color: #fff;
+	height: 80px;
+	text-align: 0 auto;
  }
 .other-left li:last-child {
   border-bottom: 0 none;
@@ -119,17 +126,16 @@ h1{ font-size: 30px;}
   height: 60px;
   line-height: 60px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   color: #787d82;
   text-align: center;
 }
-.other.ledt li a:hover{ color: #fff;}
 .other-left li a span.tip {
   height: 16px;
   border-radius: 10px;
   background-color: red;
   line-height: 16px;
-  font-size: 12px;
+  font-size: 16px;
   color: white;
   padding: 0 10px;
   position: absolute;
@@ -143,6 +149,7 @@ h1{ font-size: 30px;}
   margin-left: 280px;
   background: #fff;
   overflow: hidden;
+  opacity: .9;
   transition:1s;
 }
 .other-right:hover{ 
@@ -154,12 +161,17 @@ h1{ font-size: 30px;}
   padding: 20px;
 
 }
-.other-right-wrap h1{ display: block; transition:1s;height:30px; width: 150px; margin: 0 auto;}
-.other-right-wrap h1:hover{ box-shadow: 1px 1px 10px green;background-color: #aef;color: #fff;}
+.other-right-wrap h1{ display: block; transition:1s;height:100px;line-height: 100px;width: 150px; 
+						margin: 40px auto;text-align: center;box-shadow: 1px 1px 10px #bff;
+						background-color: #aef;color: #333333;margin-bottom: 40px;
+}
 .blog-list {
   margin: 20px;
   transition:1s;
 }
+.item dt{ height: 30px;width: 100%;margin:20px;background-color: #aee;font-size: 24px;box-shadow: 10px 10px 10px;}
+.item dd{ height: 40px;width: 100%;background-color:yellow;margin-left: 40px;font-size: 16px;box-shadow: 5px 5px 5px;transition:1s;}
+.item dd:hover{ height: 60px;font-size: 20px;background-color: #33ffcc;}
 
 .blog-list:hover{
     background:-moz-linear-gradient(top,yellow,#fff);
@@ -180,10 +192,10 @@ h1{ font-size: 30px;}
 .blog-function li{ margin-left: 20px ; line-height: 20px;}
 .blog-content{ margin: 20px;}
 #footer {
-  background-color: #000000;
+  background-color: #66CCCC;
   border-top: 1px solid #e2e4e6;
   font-size: 12px;
-  color: #fff;
+  color: #5e5e5e;
   min-width: 1200px;
 }
 .footerwaper{ position: relative;	height: 60px; overflow: hidden;}
@@ -208,7 +220,7 @@ h1{ font-size: 30px;}
   text-indent: 100%;
   overflow: hidden;
 }
-.footer_link a{ color: #fff; text-decoration: none;}
+.footer_link a{ color: #5e5e5e; text-decoration: none;}
 .footer_link a:hover {
   color: #fff;
 }
@@ -224,5 +236,5 @@ h1{ font-size: 30px;}
 	width: 80px;
   	text-align: center;
   	float: left;
-  	color: #fff;
+  	color: #5e5e5e;
 }
