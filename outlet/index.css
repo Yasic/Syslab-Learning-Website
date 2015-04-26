@@ -1,0 +1,20 @@
+.charector{
+position: relative;
+width: 180px;
+height: 200px;
+background: url(http://localhost/Blogtttttttt/outlet/images/charector.png) 0 0 no-repeat;
+-webkit-animation-name: charector-1;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-timing-function: step-start;
+-webkit-animation-duration: 2000ms;
+}
+@-webkit-keyframes charector-1{
+    0% {background-position: 0 0;}
+    14.3% {background-position: -180px 0;}
+    28.6% {background-position: -360px 0;}
+    42.9% {background-position: -540px 0;}
+    57.2% {background-position: -720px 0;}
+    71.5% {background-position: -900px 0;}
+    85.8% {background-position: -1080px 0;}
+    100% {background-position: 0 0;}
+}
